@@ -10,6 +10,7 @@ import SwiftUI
 let kFirstName = "first_name_key"
 let kLastName = "last_name_key"
 let kEmail = "email_key"
+let kIsLoggedIn = "kIsLoggedIn"
 
 struct Onboarding: View {
     @State private var firstName: String = ""
@@ -49,6 +50,7 @@ struct Onboarding: View {
                         UserDefaults.standard.set(firstName, forKey: kFirstName)
                         UserDefaults.standard.set(lastName, forKey: kLastName)
                         UserDefaults.standard.set(email, forKey: kEmail)
+                        UserDefaults.standard.set(true, forKey: kIsLoggedIn)
                         
                         isLoginIn = true
                         // Navigate to the Home screen (not implemented here)

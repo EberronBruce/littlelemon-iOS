@@ -16,6 +16,8 @@
 		7A08B1732ADDB52B006169D7 /* Little_LemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08B1722ADDB52B006169D7 /* Little_LemonTests.swift */; };
 		7A08B17D2ADDB52B006169D7 /* Little_LemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08B17C2ADDB52B006169D7 /* Little_LemonUITests.swift */; };
 		7A08B17F2ADDB52B006169D7 /* Little_LemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08B17E2ADDB52B006169D7 /* Little_LemonUITestsLaunchTests.swift */; };
+		7A4E8C962AE23EF9000B9BF3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8C952AE23EF9000B9BF3 /* Home.swift */; };
+		7A4E8C982AE24013000B9BF3 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8C972AE24013000B9BF3 /* Menu.swift */; };
 		7AAF4E7C2AE2215B00F97DA1 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		7A08B1782ADDB52B006169D7 /* Little LemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Little LemonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A08B17C2ADDB52B006169D7 /* Little_LemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Little_LemonUITests.swift; sourceTree = "<group>"; };
 		7A08B17E2ADDB52B006169D7 /* Little_LemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Little_LemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7A4E8C952AE23EF9000B9BF3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		7A4E8C972AE24013000B9BF3 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				7A08B15C2ADDB52A006169D7 /* Little_LemonApp.swift */,
+				7A4E8C952AE23EF9000B9BF3 /* Home.swift */,
+				7A4E8C972AE24013000B9BF3 /* Menu.swift */,
 				7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */,
 				7A08B15E2ADDB52A006169D7 /* ContentView.swift */,
 				7A08B1602ADDB52B006169D7 /* Assets.xcassets */,
@@ -268,8 +274,10 @@
 			files = (
 				7A08B1662ADDB52B006169D7 /* Persistence.swift in Sources */,
 				7A08B1692ADDB52B006169D7 /* Little_Lemon.xcdatamodeld in Sources */,
+				7A4E8C982AE24013000B9BF3 /* Menu.swift in Sources */,
 				7AAF4E7C2AE2215B00F97DA1 /* Onboarding.swift in Sources */,
 				7A08B15F2ADDB52A006169D7 /* ContentView.swift in Sources */,
+				7A4E8C962AE23EF9000B9BF3 /* Home.swift in Sources */,
 				7A08B15D2ADDB52A006169D7 /* Little_LemonApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -416,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

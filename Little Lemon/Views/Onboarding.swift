@@ -66,6 +66,7 @@ struct Onboarding: View {
                 .cornerRadius(8)
             }
             .padding()
+            .navigationBarHidden(true)
             .navigationDestination(isPresented: $isLoginIn) { Home() } // Add this instead of NavigationLink to remove warning
         }
     }

@@ -20,6 +20,8 @@
 		7A4E8C9E2AE8505E000B9BF3 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8C9D2AE8505E000B9BF3 /* FetchedObjects.swift */; };
 		7A4E8CA02AE8536F000B9BF3 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8C9F2AE8536F000B9BF3 /* MenuItem.swift */; };
 		7A4E8CA32AE8A641000B9BF3 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8CA12AE8A641000B9BF3 /* ExampleDatabase.xcdatamodeld */; };
+		7A4E8CA52AE96C7B000B9BF3 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8CA42AE96C7B000B9BF3 /* Hero.swift */; };
+		7A4E8CA72AE9A297000B9BF3 /* CategorySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8CA62AE9A297000B9BF3 /* CategorySelection.swift */; };
 		7AAF4E7C2AE2215B00F97DA1 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		7A4E8C9D2AE8505E000B9BF3 /* FetchedObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
 		7A4E8C9F2AE8536F000B9BF3 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		7A4E8CA22AE8A641000B9BF3 /* ExampleDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExampleDatabase.xcdatamodel; sourceTree = "<group>"; };
+		7A4E8CA42AE96C7B000B9BF3 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		7A4E8CA62AE9A297000B9BF3 /* CategorySelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelection.swift; sourceTree = "<group>"; };
 		7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +164,8 @@
 				7A4E8C992AE77A5C000B9BF3 /* UserProfile.swift */,
 				7A4E8C972AE24013000B9BF3 /* Menu.swift */,
 				7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */,
+				7A4E8CA42AE96C7B000B9BF3 /* Hero.swift */,
+				7A4E8CA62AE9A297000B9BF3 /* CategorySelection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,10 +305,12 @@
 				7AAF4E7C2AE2215B00F97DA1 /* Onboarding.swift in Sources */,
 				7A4E8C9A2AE77A5C000B9BF3 /* UserProfile.swift in Sources */,
 				7A4E8CA32AE8A641000B9BF3 /* ExampleDatabase.xcdatamodeld in Sources */,
+				7A4E8CA52AE96C7B000B9BF3 /* Hero.swift in Sources */,
 				7A4E8C962AE23EF9000B9BF3 /* Home.swift in Sources */,
 				7A4E8CA02AE8536F000B9BF3 /* MenuItem.swift in Sources */,
 				7A08B15D2ADDB52A006169D7 /* Little_LemonApp.swift in Sources */,
 				7A4E8C9E2AE8505E000B9BF3 /* FetchedObjects.swift in Sources */,
+				7A4E8CA72AE9A297000B9BF3 /* CategorySelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

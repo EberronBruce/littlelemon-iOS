@@ -15,14 +15,13 @@ struct Menu: View {
     
     @State private var menuList: MenuList?
     @State private var searchText = ""
+    @State private var selectedCategory: String = "" // State to hold the selected category
     
     var body: some View {
         VStack() {
-            Text("Little Lemon")
-            Text("Chicago")
-            Text("This is Little Lemon's app to order food")
+            Hero()
             
-            TextField("Search Menu", text: $searchText)
+            CategorySelection(selectedCategory: $selectedCategory)
             
             FetchedObjects(
                 predicate: buildPredicate(),
@@ -131,7 +130,7 @@ struct Menu: View {
     
 }
 
-#Preview {
-    Menu()
-}
+//#Preview {
+//    Menu()
+//}
 

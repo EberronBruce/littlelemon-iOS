@@ -14,6 +14,7 @@ struct Menu: View {
     let menuDataURL = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
     
     @State private var menuList: MenuList?
+    @State private var searchText = ""
     
     var body: some View {
         VStack() {
@@ -21,7 +22,12 @@ struct Menu: View {
             Text("Chicago")
             Text("This is Little Lemon's app to order food")
             
-            FetchedObjects() { (dishes: [Dish]) in
+            TextField("Search Menu", text: $searchText)
+            
+            FetchedObjects(
+                predicate: buildPredicate(),
+                sortDescriptors: buildSortDescriptors()
+            ) { (dishes: [Dish]) in
                 List {
                     ForEach(dishes) { dish in
                         HStack {
@@ -30,18 +36,20 @@ struct Menu: View {
                                 if let image = phase.image {
                                     image
                                         .resizable()
-                                        .aspectRatio(contentMode: .fit)
                                         .frame(width: 50, height: 50)
+                                        .aspectRatio(contentMode: .fit)
+                                        
                                 } else if phase.error != nil {
                                     // Handle image loading error
                                     Image(systemName: "photo")
                                         .resizable()
+                                        .frame(width: 50, height: 50)
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: 50, height: 50) // Adjust the size as needed
+
                                 } else {
                                     // Placeholder while loading
                                     ProgressView()
-                                        .frame(width: 50, height: 50) // Adjust the size as needed
+                                        .frame(width: 50, height: 50)
                                 }
                             }
                         }
@@ -56,6 +64,8 @@ struct Menu: View {
     }
     
     func getMenuData() {
+        if checkIfDishesExist() { return }
+        
         guard let url = URL(string: menuDataURL) else {
             return
         }
@@ -92,6 +102,31 @@ struct Menu: View {
                 }
             }
         }.resume()
+    }
+    
+    func checkIfDishesExist() -> Bool {
+        let fetchRequest: NSFetchRequest<Dish> = Dish.fetchRequest()
+
+        do {
+            let dishCount = try viewContext.count(for: fetchRequest)
+            return dishCount > 0
+        } catch {
+            print("Error checking for Dish entities: \(error)")
+            return false
+        }
+    }
+    
+    func buildSortDescriptors() -> [NSSortDescriptor] {
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedStandardCompare))
+        return [sortDescriptor]
+    }
+    
+    func buildPredicate() -> NSPredicate {
+        if searchText.isEmpty {
+            return NSPredicate(value: true)
+        } else {
+            return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+        }
     }
     
 }

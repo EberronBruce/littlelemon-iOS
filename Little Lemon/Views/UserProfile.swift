@@ -9,13 +9,13 @@ import SwiftUI
 
 struct UserProfile: View {
     @Environment(\.presentationMode) var presentation
+    @EnvironmentObject var appState: AppState
     
     // Create constants to hold user information from UserDefaults
     let firstName: String = UserDefaults.standard.string(forKey: kFirstName) ?? ""
     let lastName: String = UserDefaults.standard.string(forKey: kLastName) ?? ""
     let email: String = UserDefaults.standard.string(forKey: kEmail) ?? ""
     
-    @State private var isLogingIn = false
     
     var body: some View {
         VStack(spacing:20) {
@@ -23,7 +23,7 @@ struct UserProfile: View {
                 .padding()
                 .fontWeight(.semibold)
                 .font(.largeTitle)
-            Image("profile-image-placeholder")
+            Image("Profile")
                 .resizable()
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())
@@ -41,7 +41,7 @@ struct UserProfile: View {
             
             Button("Logout") {
                 UserDefaults.standard.set(false, forKey: kIsLoggedIn)
-                self.presentation.wrappedValue.dismiss()
+                appState.isLoggedIn = false
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 100)
@@ -50,11 +50,6 @@ struct UserProfile: View {
             .cornerRadius(8)
             
             Spacer()
-        }
-        .onAppear {
-            if UserDefaults.standard.bool(forKey: kIsLoggedIn) {
-              isLogingIn = true
-            }
         }
     }
 }

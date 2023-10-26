@@ -10,13 +10,13 @@ import SwiftUI
 @main
 struct Little_LemonApp: App {
     let persistenceController = PersistenceController.shared
+    let appState = AppState()
     
     var body: some Scene {
         WindowGroup {
             Onboarding()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            
+                .environmentObject(appState)
         }
-        
     }
 }

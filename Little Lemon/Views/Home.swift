@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct Home: View { 
     @State private var isUserProfileActive = false
     let persistence = PersistenceController.shared
     
@@ -20,7 +20,7 @@ struct Home: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Image("littleLemonLogo") 
+                    Image("littleLemonLogo")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 40)
@@ -46,6 +46,7 @@ struct Home: View {
         
             .preferredColorScheme(.light)
     }
+    
 }
 
 #Preview {

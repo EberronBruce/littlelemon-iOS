@@ -13,10 +13,11 @@ let kEmail = "email_key"
 let kIsLoggedIn = "kIsLoggedIn"
 
 struct Onboarding: View {
+    @EnvironmentObject var appState: AppState
+    
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var email: String = ""
-    @State private var isLoginIn: Bool = false
     
     var body: some View {
         NavigationStack { //Change NavigationView to Stack to remove warning
@@ -39,22 +40,17 @@ struct Onboarding: View {
                 TextField("Email", text: $email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-                //Commented this out as there was warning on depercated code. Leaving it to demostrate steps were followed
-//                NavigationLink(destination: Home(), isActive: $isLoginIn) {
-//                    EmptyView()
-//                }
                 
                 Button("Register") {
-                    isLoginIn = true
+                    
                     if !firstName.isEmpty && !lastName.isEmpty && isValidEmail(email) {
                         UserDefaults.standard.set(firstName, forKey: kFirstName)
                         UserDefaults.standard.set(lastName, forKey: kLastName)
                         UserDefaults.standard.set(email, forKey: kEmail)
                         UserDefaults.standard.set(true, forKey: kIsLoggedIn)
                         
-                        isLoginIn = true
-                        // Navigate to the Home screen (not implemented here)
-                        // You might use NavigationLink or other navigation methods here
+                        appState.isLoggedIn = true
+                        
                     } else {
                         // Handle invalid input or show an alert to the user
                     }
@@ -67,7 +63,8 @@ struct Onboarding: View {
             }
             .padding()
             .navigationBarHidden(true)
-            .navigationDestination(isPresented: $isLoginIn) { Home() } // Add this instead of NavigationLink to remove warning
+            .navigationDestination(isPresented: $appState.isLoggedIn) { Home() } // Add this instead of NavigationLink to remove warning
+            
         }
         .preferredColorScheme(.light)
     }

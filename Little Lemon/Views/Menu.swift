@@ -29,31 +29,13 @@ struct Menu: View {
             ) { (dishes: [Dish]) in
                 List {
                     ForEach(dishes) { dish in
-                        HStack {
-                            Text("\(dish.title ?? "no title") - $\(dish.price ?? "0.0")")
-                            AsyncImage(url: URL(string: dish.image ?? "")) { phase in
-                                if let image = phase.image {
-                                    image
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                        .aspectRatio(contentMode: .fit)
-                                        
-                                } else if phase.error != nil {
-                                    // Handle image loading error
-                                    Image(systemName: "photo")
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                        .aspectRatio(contentMode: .fit)
-
-                                } else {
-                                    // Placeholder while loading
-                                    ProgressView()
-                                        .frame(width: 50, height: 50)
-                                }
-                            }
-                        }
+                        MenuCell(
+                            title: dish.title ?? "No title",
+                            description: dish.desc ?? "No description",
+                            price: dish.price ?? "0.0", imageURL: URL(string: dish.image ?? "") ?? URL(string: "https://example.com/placeholder.jpg")!)
                     }
                 }
+                .listStyle(.plain)
             }
             
         }

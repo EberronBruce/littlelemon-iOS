@@ -69,6 +69,7 @@ struct Onboarding: View {
             .navigationBarHidden(true)
             .navigationDestination(isPresented: $isLoginIn) { Home() } // Add this instead of NavigationLink to remove warning
         }
+        .preferredColorScheme(.light)
     }
     
     // Optional: Email validation function

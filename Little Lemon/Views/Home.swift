@@ -8,43 +8,43 @@
 import SwiftUI
 
 struct Home: View {
+    @State private var isUserProfileActive = false
     let persistence = PersistenceController.shared
     
     var body: some View {
-        NavigationView {
-            TabView() {
-                Menu()
-                    .environment(\.managedObjectContext, persistence.container.viewContext)
-                    .tabItem {
-                        Label("Menu", systemImage: "list.dash")
-                    }
-                UserProfile()
-                    .environment(\.managedObjectContext, persistence.container.viewContext)
-                    .tabItem {
-                        Label("Profile", systemImage: "square.and.pencil")
-                    }
-            }
-            .navigationBarTitle("", displayMode: .inline)
+        
+        Menu()
+            .environment(\.managedObjectContext, persistence.container.viewContext)
+        
+            .navigationBarTitle("Menu", displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Image("littleLemonLogo") // Replace "photo" with the name of your image
+                    Image("littleLemonLogo") 
                         .resizable()
                         .scaledToFit()
+                        .frame(height: 40)
                 }
             }
             .navigationBarItems(trailing:
-                Button(action: {
-                    // Add your action when the button is tapped
-                }) {
-                    Image(systemName: "plus") // Replace "plus" with the name of your image
-                        .font(.title)
-                        .foregroundColor(.blue) // Customize the image color
-                }
+                                    Button(action: {
+                isUserProfileActive.toggle()
+            }) {
+                Image("Profile")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+            }
             )
             .toolbarBackground(Color.white, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
-        }
-
+            .navigationDestination(isPresented: $isUserProfileActive) {
+                UserProfile()
+                    .environment(\.managedObjectContext, persistence.container.viewContext)
+            }
+        
+        
+            .preferredColorScheme(.light)
     }
 }
 

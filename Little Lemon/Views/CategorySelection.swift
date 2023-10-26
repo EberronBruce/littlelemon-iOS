@@ -43,9 +43,12 @@ struct CategorySelection: View {
                      }
                  }
              }
+             .padding(.bottom, 20)
+            
+            Divider()
 
         }
-        .padding()
+        .padding(.horizontal)
         
     }
 }

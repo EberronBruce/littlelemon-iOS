@@ -23,13 +23,15 @@ struct Hero: View {
                         .fontWeight(.bold)
                     Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
                         .foregroundStyle(Color.secondary3)
-                        .font(.system(size: 18))
+                        .font(.system(size: 16))
                         .padding(.top, 8)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .lineLimit(nil)
                 }
                 Image("hero")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: .infinity, maxHeight: 200)
+                    .frame(maxWidth: 100, maxHeight: 150)
                     .cornerRadius(8)
                     .padding()
                     

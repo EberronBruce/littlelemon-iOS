@@ -111,6 +111,7 @@ struct UserProfile: View {
                 UserDefaults.standard.set("", forKey: kFirstName)
                 UserDefaults.standard.set("", forKey: kLastName)
                 UserDefaults.standard.set("", forKey: kEmail)
+                saveImageToDocumentDirectory(image: nil, width: 0, height: 0)
                 appState.isLoggedIn = false
             }
             .padding(.vertical, 10)

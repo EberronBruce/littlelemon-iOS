@@ -80,18 +80,25 @@ func checkIfDishesExist(viewContext: NSManagedObjectContext) -> Bool {
 
 
 func saveImageToDocumentDirectory(image: Image?, width: CGFloat, height: CGFloat) {
-    guard let image = image else {
-        return
+    //    guard let image = image else {
+    //        return
+    //    }
+    if let image = image {
+        let uiImage = image.uiImage(size: CGSize(width: width, height: height))
+        
+        if let data = uiImage.pngData(),
+           let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            
+            let fileURL = documentsDirectory.appendingPathComponent(profileImageFileName)
+            try? data.write(to: fileURL)
+        }
+    } else {
+        // If 'image' is nil, clear the existing image by removing the file
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let fileURL = documentsDirectory?.appendingPathComponent(profileImageFileName)
+        try? FileManager.default.removeItem(at: fileURL!)
     }
-
-    let uiImage = image.uiImage(size: CGSize(width: width, height: height))
-
-    if let data = uiImage.pngData(),
-       let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-
-        let fileURL = documentsDirectory.appendingPathComponent(profileImageFileName)
-        try? data.write(to: fileURL)
-    }
+    
 }
 
 func loadImageFromDocumentDirectory() -> Image? {

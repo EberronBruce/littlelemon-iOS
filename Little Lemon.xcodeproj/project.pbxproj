@@ -25,6 +25,9 @@
 		7A4E8CA92AE9D4CA000B9BF3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8CA82AE9D4CA000B9BF3 /* MenuCell.swift */; };
 		7A4E8CAB2AEA2666000B9BF3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E8CAA2AEA2666000B9BF3 /* AppState.swift */; };
 		7AAF4E7C2AE2215B00F97DA1 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */; };
+		7AE8A74A2AEB558C001B0D2F /* OnboardingIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A7492AEB558C001B0D2F /* OnboardingIntro.swift */; };
+		7AE8A74C2AEB55BF001B0D2F /* OnboardingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A74B2AEB55BF001B0D2F /* OnboardingInformation.swift */; };
+		7AE8A74E2AEB562D001B0D2F /* OnboardingExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A74D2AEB562D001B0D2F /* OnboardingExit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		7A4E8CA82AE9D4CA000B9BF3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		7A4E8CAA2AEA2666000B9BF3 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		7AE8A7492AEB558C001B0D2F /* OnboardingIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro.swift; sourceTree = "<group>"; };
+		7AE8A74B2AEB55BF001B0D2F /* OnboardingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInformation.swift; sourceTree = "<group>"; };
+		7AE8A74D2AEB562D001B0D2F /* OnboardingExit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,15 +171,34 @@
 		7A4E8C9C2AE85010000B9BF3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A4E8CAD2AEB34D6000B9BF3 /* Onboarding */,
+				7A4E8CAC2AEB33AC000B9BF3 /* Components */,
 				7A4E8C952AE23EF9000B9BF3 /* Home.swift */,
-				7A4E8CA82AE9D4CA000B9BF3 /* MenuCell.swift */,
 				7A4E8C992AE77A5C000B9BF3 /* UserProfile.swift */,
 				7A4E8C972AE24013000B9BF3 /* Menu.swift */,
-				7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A4E8CAC2AEB33AC000B9BF3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7A4E8CA82AE9D4CA000B9BF3 /* MenuCell.swift */,
 				7A4E8CA42AE96C7B000B9BF3 /* Hero.swift */,
 				7A4E8CA62AE9A297000B9BF3 /* CategorySelection.swift */,
 			);
-			path = Views;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7A4E8CAD2AEB34D6000B9BF3 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7AAF4E7B2AE2215B00F97DA1 /* Onboarding.swift */,
+				7AE8A7492AEB558C001B0D2F /* OnboardingIntro.swift */,
+				7AE8A74B2AEB55BF001B0D2F /* OnboardingInformation.swift */,
+				7AE8A74D2AEB562D001B0D2F /* OnboardingExit.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,8 +332,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A08B1662ADDB52B006169D7 /* Persistence.swift in Sources */,
+				7AE8A74A2AEB558C001B0D2F /* OnboardingIntro.swift in Sources */,
 				7A4E8C982AE24013000B9BF3 /* Menu.swift in Sources */,
 				7A4E8CA92AE9D4CA000B9BF3 /* MenuCell.swift in Sources */,
+				7AE8A74C2AEB55BF001B0D2F /* OnboardingInformation.swift in Sources */,
 				7AAF4E7C2AE2215B00F97DA1 /* Onboarding.swift in Sources */,
 				7A4E8C9A2AE77A5C000B9BF3 /* UserProfile.swift in Sources */,
 				7A4E8CA32AE8A641000B9BF3 /* ExampleDatabase.xcdatamodeld in Sources */,
@@ -316,6 +343,7 @@
 				7A4E8C962AE23EF9000B9BF3 /* Home.swift in Sources */,
 				7A4E8CA02AE8536F000B9BF3 /* MenuItem.swift in Sources */,
 				7A08B15D2ADDB52A006169D7 /* Little_LemonApp.swift in Sources */,
+				7AE8A74E2AEB562D001B0D2F /* OnboardingExit.swift in Sources */,
 				7A4E8CAB2AEA2666000B9BF3 /* AppState.swift in Sources */,
 				7A4E8C9E2AE8505E000B9BF3 /* FetchedObjects.swift in Sources */,
 				7A4E8CA72AE9A297000B9BF3 /* CategorySelection.swift in Sources */,

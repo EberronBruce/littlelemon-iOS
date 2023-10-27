@@ -30,6 +30,7 @@
 		7AE8A74E2AEB562D001B0D2F /* OnboardingExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A74D2AEB562D001B0D2F /* OnboardingExit.swift */; };
 		7AE8A7502AEB59BE001B0D2F /* Capstone Wireframe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AE8A74F2AEB59BD001B0D2F /* Capstone Wireframe.jpg */; };
 		7AE8A7522AEB5F0A001B0D2F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A7512AEB5F0A001B0D2F /* Util.swift */; };
+		7AE8A7552AEB9024001B0D2F /* SUImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A7542AEB9024001B0D2F /* SUImagePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		7AE8A74D2AEB562D001B0D2F /* OnboardingExit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExit.swift; sourceTree = "<group>"; };
 		7AE8A74F2AEB59BD001B0D2F /* Capstone Wireframe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Capstone Wireframe.jpg"; sourceTree = "<group>"; };
 		7AE8A7512AEB5F0A001B0D2F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		7AE8A7532AEB8F0E001B0D2F /* Little-Lemon-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Little-Lemon-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7AE8A7542AEB9024001B0D2F /* SUImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUImagePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,7 @@
 		7A08B15B2ADDB52A006169D7 /* Little Lemon */ = {
 			isa = PBXGroup;
 			children = (
+				7AE8A7532AEB8F0E001B0D2F /* Little-Lemon-Info.plist */,
 				7A4E8C9C2AE85010000B9BF3 /* Views */,
 				7A4E8C9B2AE84FFB000B9BF3 /* Data */,
 				7A08B15C2ADDB52A006169D7 /* Little_LemonApp.swift */,
@@ -189,6 +193,7 @@
 		7A4E8CAC2AEB33AC000B9BF3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7AE8A7542AEB9024001B0D2F /* SUImagePickerView.swift */,
 				7A4E8CA82AE9D4CA000B9BF3 /* MenuCell.swift */,
 				7A4E8CA42AE96C7B000B9BF3 /* Hero.swift */,
 				7A4E8CA62AE9A297000B9BF3 /* CategorySelection.swift */,
@@ -352,6 +357,7 @@
 				7A4E8CA02AE8536F000B9BF3 /* MenuItem.swift in Sources */,
 				7A08B15D2ADDB52A006169D7 /* Little_LemonApp.swift in Sources */,
 				7AE8A74E2AEB562D001B0D2F /* OnboardingExit.swift in Sources */,
+				7AE8A7552AEB9024001B0D2F /* SUImagePickerView.swift in Sources */,
 				7A4E8CAB2AEA2666000B9BF3 /* AppState.swift in Sources */,
 				7A4E8C9E2AE8505E000B9BF3 /* FetchedObjects.swift in Sources */,
 				7A4E8CA72AE9A297000B9BF3 /* CategorySelection.swift in Sources */,
@@ -521,6 +527,9 @@
 				DEVELOPMENT_TEAM = V3GFNATBC5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Little-Lemon-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need to use camera to get profile.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need to use photo library for profile";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -550,6 +559,9 @@
 				DEVELOPMENT_TEAM = V3GFNATBC5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Little-Lemon-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need to use camera to get profile.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need to use photo library for profile";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

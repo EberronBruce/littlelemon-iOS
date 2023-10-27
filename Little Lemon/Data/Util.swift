@@ -7,11 +7,13 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 let kFirstName = "first_name_key"
 let kLastName = "last_name_key"
 let kEmail = "email_key"
 let kIsLoggedIn = "kIsLoggedIn"
+let profileImageFileName = "little_lemon_profile_image"
 
 let menuDataURL = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
 
@@ -73,5 +75,50 @@ func checkIfDishesExist(viewContext: NSManagedObjectContext) -> Bool {
     } catch {
         print("Error checking for Dish entities: \(error)")
         return false
+    }
+}
+
+
+func saveImageToDocumentDirectory(image: Image?, width: CGFloat, height: CGFloat) {
+    guard let image = image else {
+        return
+    }
+
+    let uiImage = image.uiImage(size: CGSize(width: width, height: height))
+
+    if let data = uiImage.pngData(),
+       let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+
+        let fileURL = documentsDirectory.appendingPathComponent(profileImageFileName)
+        try? data.write(to: fileURL)
+    }
+}
+
+func loadImageFromDocumentDirectory() -> Image? {
+    if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+        let fileURL = documentsDirectory.appendingPathComponent(profileImageFileName)
+        if let data = try? Data(contentsOf: fileURL), let uiImage = UIImage(data: data) {
+            return Image(uiImage: uiImage)
+        }
+    }
+    return nil
+}
+
+extension Image {
+    func uiImage(size: CGSize) -> UIImage {
+        // Create a view that hosts the Image
+        let view = UIView(frame: CGRect(origin: .zero, size: size))
+        let hostingController = UIHostingController(rootView: self
+            .resizable()
+            .scaledToFit()
+        )
+        hostingController.view.frame = view.bounds
+        view.addSubview(hostingController.view)
+
+        // Render the view to a UIImage
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { _ in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
     }
 }

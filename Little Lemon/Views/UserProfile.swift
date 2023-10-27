@@ -11,13 +11,21 @@ struct UserProfile: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var appState: AppState
     
-    @Binding var profileImage : Image
+    @Binding var profileImage : Image? //= loadImageFromDocumentDirectory() ?? Image(systemName: "person.circle")
+    @State private var backupImage: Image?
+    let imageHeight : CGFloat = 100
+    let imageWidth : CGFloat = 100
     
     // Create constants to hold user information from UserDefaults
     @State var firstName: String = UserDefaults.standard.string(forKey: kFirstName) ?? ""
     @State var lastName: String = UserDefaults.standard.string(forKey: kLastName) ?? ""
     @State var email: String = UserDefaults.standard.string(forKey: kEmail) ?? ""
     
+    @State private var isImagePickerPresented = false
+    
+    @State private var shouldPresentImagePicker = false
+    @State private var shouldPresentCamera = false
+    @State private var isImagePickerLoaded = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,16 +41,16 @@ struct UserProfile: View {
                         Text("Avatar")
                             .font(.caption)
                             .foregroundStyle(Color.secondary3)
-                        profileImage
+                        profileImage?
                             .resizable()
-                            .frame(width: 100, height: 100)
+                            .frame(width: imageWidth, height: imageHeight)
                             .clipShape(Circle())
                             .padding(.bottom, 20)
                     }
                     .padding(.horizontal, 20)
                     
                     Button("Change Avatar") {
-                        //Show camera or photo album and replace and save image
+                        isImagePickerPresented = true
                     }
                     .padding(.vertical, 10)
                     .padding(.horizontal, 10)
@@ -87,6 +95,8 @@ struct UserProfile: View {
                 UserDefaults.standard.set(firstName, forKey: kFirstName)
                 UserDefaults.standard.set(lastName, forKey: kLastName)
                 UserDefaults.standard.set(email, forKey: kEmail)
+                saveImageToDocumentDirectory(image: profileImage, width: imageWidth, height: imageHeight)
+                backupImage = profileImage
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 100)
@@ -109,10 +119,55 @@ struct UserProfile: View {
             
         }
         .padding()
-
+        
+        .alert("Select a source for your profile picture", isPresented: $isImagePickerPresented) {
+            Button("Camera", role: .none) {
+                self.shouldPresentImagePicker = true
+                self.shouldPresentCamera = true
+            }
+            Button("Photo Library", role: .none) {
+                self.shouldPresentImagePicker = true
+                self.shouldPresentCamera = false
+            }
+            Button("Cancel", role: .cancel) {}
+        }
+        
+        .sheet(isPresented: $shouldPresentImagePicker) {
+            if isImagePickerLoaded {
+                SUImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$profileImage, isPresented: self.$shouldPresentImagePicker)
+            } else {
+                ProgressView("Loading Image Picker...")
+                      .onAppear {
+                          // Delay the image picker presentation to allow the ProgressView to appear
+                          DispatchQueue.main.async {
+                              self.isImagePickerLoaded = true
+                          }
+                      }
+            }
+            
+        }
+        
+        .navigationBarTitle("Profile", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Image("littleLemonLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 40)
+            }
+        }
+        .toolbarBackground(Color.white, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        
+        .onAppear {
+            backupImage = profileImage
+        }
+        .onDisappear {
+            profileImage = backupImage
+        }
     }
 }
 
 #Preview {
-    UserProfile(profileImage: .constant(Image("Profile")))
+    UserProfile(profileImage: .constant(nil))
 }

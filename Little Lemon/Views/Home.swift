@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Home: View { 
     @State private var isUserProfileActive = false
-    @State var profileImage = Image(systemName: "person.circle")
+    @State var profileImage: Image? = loadImageFromDocumentDirectory() ?? Image(systemName: "person.circle")
     let persistence = PersistenceController.shared
     
     var body: some View {
@@ -30,7 +30,7 @@ struct Home: View {
                                     Button(action: {
                 isUserProfileActive.toggle()
             }) {
-                profileImage
+                profileImage?
                     .resizable()
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())

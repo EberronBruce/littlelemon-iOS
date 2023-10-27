@@ -97,6 +97,7 @@ struct UserProfile: View {
                 UserDefaults.standard.set(email, forKey: kEmail)
                 saveImageToDocumentDirectory(image: profileImage, width: imageWidth, height: imageHeight)
                 backupImage = profileImage
+                self.presentation.wrappedValue.dismiss()
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 100)

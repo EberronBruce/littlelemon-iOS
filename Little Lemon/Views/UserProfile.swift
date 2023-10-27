@@ -108,6 +108,9 @@ struct UserProfile: View {
             
             Button("Logout") {
                 UserDefaults.standard.set(false, forKey: kIsLoggedIn)
+                UserDefaults.standard.set("", forKey: kFirstName)
+                UserDefaults.standard.set("", forKey: kLastName)
+                UserDefaults.standard.set("", forKey: kEmail)
                 appState.isLoggedIn = false
             }
             .padding(.vertical, 10)

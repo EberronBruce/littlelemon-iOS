@@ -11,6 +11,8 @@ struct UserProfile: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var appState: AppState
     
+    @Binding var profileImage : Image
+    
     // Create constants to hold user information from UserDefaults
     let firstName: String = UserDefaults.standard.string(forKey: kFirstName) ?? ""
     let lastName: String = UserDefaults.standard.string(forKey: kLastName) ?? ""
@@ -23,11 +25,11 @@ struct UserProfile: View {
                 .padding()
                 .fontWeight(.semibold)
                 .font(.largeTitle)
-            Image("Profile")
+            
+            profileImage
                 .resizable()
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())
-                .overlay(Circle().stroke(Color.gray, lineWidth: 2))
                 .padding(.bottom, 20)
             
             Text("First Name: \(firstName)")
@@ -55,5 +57,5 @@ struct UserProfile: View {
 }
 
 #Preview {
-    UserProfile()
+    UserProfile(profileImage: .constant(Image("Profile")))
 }

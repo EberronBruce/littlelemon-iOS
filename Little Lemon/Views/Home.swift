@@ -9,10 +9,10 @@ import SwiftUI
 
 struct Home: View { 
     @State private var isUserProfileActive = false
+    @State var profileImage = Image(systemName: "person.circle")
     let persistence = PersistenceController.shared
     
     var body: some View {
-        
         Menu()
             .environment(\.managedObjectContext, persistence.container.viewContext)
         
@@ -30,7 +30,7 @@ struct Home: View {
                                     Button(action: {
                 isUserProfileActive.toggle()
             }) {
-                Image("Profile")
+                profileImage
                     .resizable()
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
@@ -39,7 +39,7 @@ struct Home: View {
             .toolbarBackground(Color.white, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .navigationDestination(isPresented: $isUserProfileActive) {
-                UserProfile()
+                UserProfile(profileImage: $profileImage)
                     .environment(\.managedObjectContext, persistence.container.viewContext)
             }
         

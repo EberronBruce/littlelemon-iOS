@@ -28,6 +28,8 @@
 		7AE8A74A2AEB558C001B0D2F /* OnboardingIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A7492AEB558C001B0D2F /* OnboardingIntro.swift */; };
 		7AE8A74C2AEB55BF001B0D2F /* OnboardingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A74B2AEB55BF001B0D2F /* OnboardingInformation.swift */; };
 		7AE8A74E2AEB562D001B0D2F /* OnboardingExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A74D2AEB562D001B0D2F /* OnboardingExit.swift */; };
+		7AE8A7502AEB59BE001B0D2F /* Capstone Wireframe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AE8A74F2AEB59BD001B0D2F /* Capstone Wireframe.jpg */; };
+		7AE8A7522AEB5F0A001B0D2F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8A7512AEB5F0A001B0D2F /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		7AE8A7492AEB558C001B0D2F /* OnboardingIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro.swift; sourceTree = "<group>"; };
 		7AE8A74B2AEB55BF001B0D2F /* OnboardingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInformation.swift; sourceTree = "<group>"; };
 		7AE8A74D2AEB562D001B0D2F /* OnboardingExit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExit.swift; sourceTree = "<group>"; };
+		7AE8A74F2AEB59BD001B0D2F /* Capstone Wireframe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Capstone Wireframe.jpg"; sourceTree = "<group>"; };
+		7AE8A7512AEB5F0A001B0D2F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 				7A08B15C2ADDB52A006169D7 /* Little_LemonApp.swift */,
 				7A4E8CA12AE8A641000B9BF3 /* ExampleDatabase.xcdatamodeld */,
 				7A08B1602ADDB52B006169D7 /* Assets.xcassets */,
+				7AE8A74F2AEB59BD001B0D2F /* Capstone Wireframe.jpg */,
 				7A08B1622ADDB52B006169D7 /* Preview Content */,
 			);
 			path = "Little Lemon";
@@ -164,6 +169,7 @@
 				7A4E8C9D2AE8505E000B9BF3 /* FetchedObjects.swift */,
 				7A4E8C9F2AE8536F000B9BF3 /* MenuItem.swift */,
 				7A4E8CAA2AEA2666000B9BF3 /* AppState.swift */,
+				7AE8A7512AEB5F0A001B0D2F /* Util.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 			files = (
 				7A08B1642ADDB52B006169D7 /* Preview Assets.xcassets in Resources */,
 				7A08B1612ADDB52B006169D7 /* Assets.xcassets in Resources */,
+				7AE8A7502AEB59BE001B0D2F /* Capstone Wireframe.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +344,7 @@
 				7A4E8CA92AE9D4CA000B9BF3 /* MenuCell.swift in Sources */,
 				7AE8A74C2AEB55BF001B0D2F /* OnboardingInformation.swift in Sources */,
 				7AAF4E7C2AE2215B00F97DA1 /* Onboarding.swift in Sources */,
+				7AE8A7522AEB5F0A001B0D2F /* Util.swift in Sources */,
 				7A4E8C9A2AE77A5C000B9BF3 /* UserProfile.swift in Sources */,
 				7A4E8CA32AE8A641000B9BF3 /* ExampleDatabase.xcdatamodeld in Sources */,
 				7A4E8CA52AE96C7B000B9BF3 /* Hero.swift in Sources */,

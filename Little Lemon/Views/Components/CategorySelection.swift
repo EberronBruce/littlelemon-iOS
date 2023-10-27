@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CategorySelection: View {
-    @Binding var selectedCategory: String // Binding to pass the selected category
+    @Binding var selectedCategory: String? // Binding to pass the selected category
     
-    // Array of categories for the filter buttons
-    let categories = ["Starters", "Mains", "Deserts", "Sides"]
+    // Array of categories for the filter buttons,
+    let categories = ["Starters", "Mains", "Desserts"] // There are only three categories. This is hardcoded because there is no api to get them.
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -31,13 +31,17 @@ struct CategorySelection: View {
                  HStack(spacing: 10) {
                      ForEach(categories, id: \.self) { category in
                          Button(action: {
-                             // Set the selected category when a filter button is tapped
-                             selectedCategory = category.lowercased()
+                             if selectedCategory != category.lowercased() {
+                                 selectedCategory = category.lowercased()
+                             } else {
+                                 selectedCategory = nil
+                             }
+                             
                          }) {
                              Text(category)
                                  .padding(10)
-                                 .background(selectedCategory == category ? Color.primary1 : Color.secondary3)
-                                 .foregroundColor(selectedCategory == category ? .white : .primary1)
+                                 .background(selectedCategory == category.lowercased() ? Color.primary1 : Color.secondary3)
+                                 .foregroundColor(selectedCategory == category.lowercased() ? .white : .primary1)
                                  .cornerRadius(20)
                          }
                      }

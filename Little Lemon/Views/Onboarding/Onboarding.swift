@@ -54,6 +54,7 @@ struct Onboarding: View {
                     
                     Button(currentPage == 3 ? "Get Started" : "Next") {
                         if currentPage < 3 {
+                            //appState.isLoggedIn = true
                             currentPage += 1
                         } else {
                             UserDefaults.standard.set(firstName, forKey: kFirstName)
@@ -77,6 +78,11 @@ struct Onboarding: View {
                 }
                 .padding()
                 .padding(.horizontal, 10)
+            }
+            .onAppear {
+                if UserDefaults.standard.bool(forKey: kIsLoggedIn) {
+                    appState.isLoggedIn = true
+                }
             }
             .navigationDestination(isPresented: $appState.isLoggedIn) {
                 Home()

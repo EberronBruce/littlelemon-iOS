@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Hero: View {
-    @State private var searchText = ""
+    @Binding var searchText: String
+    
     var body: some View {
         VStack {
             HStack {
@@ -64,5 +65,5 @@ struct Hero: View {
 }
 
 #Preview {
-    Hero()
+    Hero(searchText: .constant(""))
 }
